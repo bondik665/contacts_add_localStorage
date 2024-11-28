@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список Контактов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo"><img src="./img/logo.png" alt="logo"></div>
+            <div class="buttons">
+                <button class="btn-1">Добавить контакт <img src="./img/add.png" alt="plus"></button>
+                <button class="btn-2">Группы</button>
+                <!-- <button class="btn-clear-storage">Очистить данные</button> -->
+            </div>
+            <!-- <button class="menu-toggle">☰</button> -->
+        </header>
+        <div class="empty-message" id="emptyMessage">Список контактов пуст</div>
+        <ul id="contactList" class="contact-list"></ul>
+        <select id="groupFilter">
+            <option value="">Все группы</option>
+        </select>
+    </div>
+    
+    <!-- Боковое меню для групп -->
+    <div class="sidebar" id="sidebarGroups">
+        <div class="sidebar-content">
+            <button class="btn-close" data-target="sidebarGroups">&times;</button>
+            <h2>Группы</h2>
+            <div class="group-input field" id="groupInput">
+                <input type="text" id="groupNameInput" placeholder="Введите имя группы">
+                <button class="btn-delete444">x</button>
+            </div>
+            <ul id="groupList" class="group-list"></ul>
+        </div>
+        <div class="sidebar-buttons" style="display: flex; justify-content: space-between;">
+            <button class="btn-add">Добавить</button>
+            <button class="btn-save">Сохранить</button>
+        </div>
+    </div>
+    
+    <!-- Боковое меню для добавления контакта -->
+    <div class="sidebar" id="sidebarAddContact">
+        <div class="sidebar-content">
+            <button class="btn-close" data-target="sidebarAddContact">&times;</button>
+            <h2>Добавить контакт</h2>
+            <p>добавления контакта...</p>
+        </div>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Имя" required>
+            <input type="text" id="phone" placeholder="Телефон" required>
+            <input type="text" id="group" placeholder="Группа">
+            <div class="sidebar-buttons">
+                <button type="submit">Добавить контакт</button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Модальное окно для редактирования контакта -->
+    <div class="modal" id="editContactModal">
+        <div class="modal-content">
+            <button class="btn-close" data-target="editContactModal">&times;</button>
+            <h2>Редактировать контакт</h2>
+            <form id="editContactForm">
+                <input type="text" id="editName" placeholder="Имя" required>
+                <input type="text" id="editPhone" placeholder="Телефон" required>
+                <input type="text" id="editGroup" placeholder="Группа">
+                <div class="modal-buttons">
+                    <button type="submit">Сохранить</button>
+                    <button type="button" id="cancelEdit">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Оверлей -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="js.js"></script>
+</body>
+
+</html>

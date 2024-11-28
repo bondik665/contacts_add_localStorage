@@ -1,0 +1,429 @@
+.btn-delete444 {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    background-color: #807c7c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Основной контейнер */
+.container {
+    position: relative;
+    width: 100%;
+    /* max-width: 1920px; */
+    margin: 0 auto;
+}
+
+/* Шапка */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Кнопки */
+.buttons {
+    position: absolute;
+    left: 70%;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-1 {
+    width: 178px;
+    height: 38px;
+    font-size: 14px;
+    background-color: #F81155;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-1:hover {
+    background-color: #D1003E;
+}
+
+.btn-1 img {
+    margin-left: 5px;
+}
+
+.btn-2 {
+    width: 82px;
+    height: 38px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #005BFE;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-2:hover {
+    background-color: #0047C6;
+}
+
+/* Сообщение о пустом списке контактов */
+.empty-message {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    margin-top: 50px;
+    color: #888;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Список контактов */
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.contact-list li {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-list li button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-list li button:hover {
+    background-color: #c82333;
+}
+
+/* Боковое меню */
+.sidebar {
+    display: none;
+    /* Скрываем меню по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 312px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    display: flex;
+    /* Показываем меню */
+}
+
+/* Кнопки в боковом меню */
+.sidebar-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    /* Размещаем кнопки внизу */
+    margin-bottom: 10%;
+}
+
+.sidebar-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sidebar-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* форма */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.sidebar-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Оверлей */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.overlay.open {
+    display: block;
+}
+
+/* ----close btn ----- */
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+.btn-close:hover {
+    color: #000;
+}
+
+/* ----- */
+
+/* Блок ввода имени группы */
+.group-input {
+    display: none;
+    /* Скрываем блок по умолчанию */
+    margin-top: 20px;
+}
+
+.group-input.open {
+    display: block;
+    /* Показываем блок */
+}
+
+.group-input input {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.group-input button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+}
+
+.group-input button:hover {
+    background-color: #c82333;
+}
+
+/* --------для списка */
+.contact-list {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1002;
+}
+
+.modal.open {
+    display: block;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* список групп в меню */
+.group-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.group-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+}
+
+.group-list button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.group-list button:hover {
+    background-color: #ff4500;
+}
+
+/* ---------- */
+
+/* -----ада */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .contact-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-list button {
+        margin-top: 5px;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        left: 0px;
+    }
+
+    .buttons {
+        position: absolute;
+        left: 20%;
+        display: flex;
+        gap: 10px;
+        top: 34%;
+    }
+
+    .buttons.open {
+        display: flex;
+    }
+
+    .buttons button {
+        margin: 5px 0;
+    }
+
+    .sidebar {
+        width: 70%;
+    }
+
+    .sidebar-content {
+        padding: 10px;
+    }
+
+    .sidebar-buttons {
+        flex-direction: column;
+    }
+
+    .sidebar-buttons button {
+        margin: 5px 0;
+    }
+
+    #groupFilter {
+        margin-top: 10px;
+    }
+    #groupFilter option{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+}
